@@ -1,38 +1,66 @@
 Author and Purpose
 	Author: P12214763
+	
 	Purpose:
-	Applications main purpose is to act like a dictionary storing word and their meaning in a data structure. It should also be able to add new words and their meaning through single or multiple text files. 
-	A WORD is a sequence of characters up to MAX_WORD_SIZE in length. A DESCRIPTION is a sequence of characters (including spaces) up to MAX_DESC_SIZE in length.
-	If the words already exist in the data structure and is the text file than 	it’s meaning should be replaced by the latest text file provided by the user. 
-	Words should be case sensitive for example there will two entries for “Apple” and “apple”. User should be able to add their own words and meaning while loading the application and search for specific words. If the words doesn’t exist in the data structure user is prompted by error notification saying “Not in dictionary”.
+	Applications main purpose is to act like a dictionary storing word and
+	their meaning in a data structure.It should also be able to add new words 
+	and their meaning through single or multiple text files. A WORD is a 
+	sequence of characters up to MAX_WORD_SIZE in length. A DESCRIPTION is a 
+	sequence of characters (including spaces) up to MAX_DESC_SIZE in length.
+	If the words already exist in the data structure and is the text file than 
+	it’s meaning should be replaced by the latest text file provided by the 
+	user. Words should be case sensitive for example there will two entries for 
+	“Apple” and “apple”. User should be able to add their own words and meaning 
+	while loading the application and search for specific words. If the words 
+	doesn’t exist in the data structure user is prompted by error notification 
+	saying “Not in dictionary”.
 	
 A Manifest
 	dictionary.h:
-	Is the header file used to define the physical layout of program data. It directive allows libraries of code to be developed which help to easily cross-reference where components are used in a system and easily change programs when needed.
+	Is the header file used to define the physical layout of program data. It 
+	directive allows libraries of code to be developed which help to easily 
+	cros -reference where components are used in a system and easily change 
+	programs when needed.
 	
 	dictionary.c:
-	Is the main program that implements dictionary.h. It’s where all the functions are created and data structure is stored. It’s the main meat of the application.
+	Is the main program that implements dictionary.h. It’s where all the 
+	functions are created and data structure is stored. It’s the main meat of 
+	the application.
 	
 	d_run.c:
-	Make use of all the functions available in the dictionary.c file. For example d_lookup function is used to look a word and its meaning in a data structure in dictionary.c file. So d_run.c can call the d_lookup with a word and dictionary,c will look the word if found pass the work if not return 0 which will display error message.
+	Make use of all the functions available in the dictionary.c file. For 
+	example d_lookup function is used to look a word and its meaning in a data 
+	structure in dictionary.c file. So d_run.c can call the d_lookup with a 
+	word and dictionary,c will look the word if found pass the work if not 
+	return 0 which will display error message.
 	
 	makefile:
-	Contains all the instruction for machine to compile the program and create a exectutable called d_run. If makefile was not supplied user would have to manually type the cmd to compline all the files which would open massive window for human error.
+	Contains all the instruction for machine to compile the program and create 
+	a exectutable called d_run. If makefile was not supplied user would have to 
+	manually type the cmd to compline all the files which would open massive 
+	window for human error.
 	
 	README:
-	Conatain all the information about applications, file, instructions on how to use the application, installation, information about bugs and other information.
+	Conatain all the information about applications, file, instructions on how 
+	to use the application, installation, information about bugs and other 
+	information.
 	
 	
 Installation Instructions
-	Firstly all the files are store inside dicSource which is then zip in my pnumber. So the user will receive p12214763.tar.gz to uszip they need they need to just type in cmd
+	Firstly all the files are store inside dicSource which is then zip in my 
+	pnumber. So the user will receive p12214763.tar.gz to uszip they need they 
+	need to just type in cmd
 	====================
 	tar xvzf p12214763.tar.gz
 	====================
-	This will give you disSource which will contain all the file needed for the application to function correctly. Now you navigate to disSource folder and type in.
+	This will give you disSource which will contain all the file needed for the 
+	application to function correctly. Now you navigate to disSource folder and 
+	type in.
 	====================
 	make install
 	====================
-	This will compile all the program for the user and give them a excuteable d_run. To use the application user just need to type in.
+	This will compile all the program for the user and give them a excuteable 
+	d_run. To use the application user just need to type in.
 	====================
 	./d_run
 	====================
@@ -40,15 +68,21 @@ Installation Instructions
 Usage Instructions
 	Notes on how to run the application once it has been built.
 
-	Now after you have built your application you’ll need some words and meaning to test the program. Create a text file with .txt extension, now for words and meaning they are meant to place in specific way for example if you a file called d1.txt inside should look like this and always end with “.” This indicates end of file.
+	Now after you have built your application you’ll need some words and 
+	meaning to test the program. Create a text file with .txt extension, now 
+	for words and meaning they are meant to place in specific way for example 
+	if you a file called d1.txt inside should look like this and always end 
+	with “.” This indicates end of file.
 	===================================
 	computer Electronic device for processing data according to instructions
 	playground Area of outdoor play or recreation
 	plateau Land area with high, level surface
 	.
 	====================================
-	So if the user passes in computer as word the meaning will follow everything after the space unitil newline.
-	Now to use the application you need to have your d1.txt file inside disSource folder. When inside disSource in you CLI type this command to use the dictionary.
+	So if the user passes in computer as word the meaning will follow 
+	everything after the space unitil newline. Now to use the application you 
+	need to have your d1.txt file inside disSource folder. When inside 
+	disSource in you CLI type this command to use the dictionary.
 	=======================
 	./d_run d1.txt
 	=======================
@@ -58,7 +92,17 @@ Usage Instructions
 	=======================
 	
 Known Bugs
-	Currently as with hash table there always will be a collision. So if there’s a collision I haven’t made a function to detect it or prevent it. I did try using double hash function and was successful but I have commented them out but it’s easy to switch between single or double function.
+	Currently as with hash table there always will be a collision. So if 
+	there’s a collision I haven’t made a function to detect it or prevent it. I 
+	did try using double hash function and was successful but I have commented 
+	them out but it’s easy to switch between single or double function.
 
 Implementation Notes
-	Hash tables are a simple and effective method to implement dictionaries. Average time to search for an element is O(1), while worst-case time is O(n). A hash table is simply an array that is addressed via a hash function. If the hash function is uniform, or equally distributes the data keys among the hash table indices, then hashing effectively subdivides the list to be searched. Worst-case behaviour occurs when all keys hash to the same index. These are the main reason why I choose hash table over other data structure.
+	Hash tables are a simple and effective method to implement dictionaries. 
+	Average time to search for an element is O(1), while worst-case time is    
+	O(n). A hash table is simply an array that is addressed via a hash 
+	function. If the hash function is uniform, or equally distributes the data 
+	keys among the hash table indices, then hashing effectively subdivides the 
+	list to be searched. Worst-case behaviour occurs when all keys hash to the 
+	same index. These are the main reason why I choose hash table over other 
+	data structure.
